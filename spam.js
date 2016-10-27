@@ -54,7 +54,7 @@ if (msg.content.startsWith(prefix + "help")) {
         ])
     }
     }
-}
+} else
 //SPAM
     if (msg.content.startsWith(prefix + "spam")) {
     try {
@@ -75,7 +75,7 @@ if (msg.content.startsWith(prefix + "help")) {
         } catch (err) {
         console.log(err)
         }
-        }
+        } else
 //DELETESPAM
     if (msg.content.startsWith(prefix + "dspam")) {
     try {
@@ -98,7 +98,7 @@ if (msg.content.startsWith(prefix + "help")) {
         } catch (err) {
         console.log(err)
         }
-        }
+        } else
 //PM
     if (msg.content.startsWith(prefix + "pmspam")) {
         try {
@@ -121,7 +121,7 @@ if (msg.content.startsWith(prefix + "help")) {
         } catch (err) {
 msg.channel.sendMessage("Error, user not found.")
         }
-    }
+    } else
    //PMDELETE
       if (msg.content.startsWith(prefix + "dpmspam")) {
         try {
@@ -145,7 +145,7 @@ msg.channel.sendMessage("Error, user not found.")
         } catch (err) {
 msg.channel.sendMessage("Error, user not found.")
         }
-    }
+    } else
     //CHANNEL SPAM
     if (msg.content.startsWith(prefix + "cspam")) {
         try {
