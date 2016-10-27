@@ -2,12 +2,10 @@ var Discord = require('discord.js');
 var bot = new Discord.Client();
 var agent = require('superagent');
 var prefix = "&";
-var commanders = 'YOURID';
 bot.on('message', msg => {
 var suffix = msg.content.split(' ').slice(1);
 //CMDS
 if (msg.content.startsWith(prefix + "help")) {
-    if (commanders.indexOf(msg.author.id) > -1) {
     var help = suffix[0];
     if (!help) {
     msg.channel.sendMessage([
@@ -48,12 +46,10 @@ if (msg.content.startsWith(prefix + "help")) {
         ])
     }
     }
-    }
 }
 //SPAM
     if (msg.content.startsWith(prefix + "spam")) {
     try {
-    if (commanders.indexOf(msg.author.id) > -1) {
         var timesRun = 0;
         var numberspam = suffix[0];
         console.log(numberspam)
@@ -67,8 +63,7 @@ if (msg.content.startsWith(prefix + "help")) {
                clearInterval(interval)
            }
        }, 1)
-       msg.channel.sendMessage(interval.length)
-        }
+       msg.channel.sendMessage(interval.length);
         } catch (err) {
         console.log(err)
         }
@@ -76,7 +71,6 @@ if (msg.content.startsWith(prefix + "help")) {
 //DELETESPAM
     if (msg.content.startsWith(prefix + "dspam")) {
     try {
-        if (commanders.indexOf(msg.author.id) > -1) {
         var timesRun = 0;
         var numberspam = suffix[0];
         console.log(numberspam)
@@ -92,9 +86,7 @@ if (msg.content.startsWith(prefix + "help")) {
                clearInterval(interval)
            }
        }, 1)
-       msg.channel.sendMessage(interval.length)
-    
-        }
+       msg.channel.sendMessage(interval.length);
         } catch (err) {
         console.log(err)
         }
@@ -102,7 +94,6 @@ if (msg.content.startsWith(prefix + "help")) {
 //PM
     if (msg.content.startsWith(prefix + "pmspam")) {
         try {
-        if (commanders.indexOf(msg.author.id) > -1) {
         var usertospam = msg.mentions.users.first();
         var timesRun = 0;
         var numberspam = suffix[1];
@@ -118,8 +109,7 @@ if (msg.content.startsWith(prefix + "help")) {
            }
        }, 1)
 
-       usertospam.sendMessage(interval.length)
-        }
+       usertospam.sendMessage(interval.length);
         } catch (err) {
 msg.channel.sendMessage("Error, user not found.")
         }
@@ -127,7 +117,6 @@ msg.channel.sendMessage("Error, user not found.")
    //PMDELETE
       if (msg.content.startsWith(prefix + "dpmspam")) {
         try {
-        if (commanders.indexOf(msg.author.id) > -1) {
         var usertospam = msg.mentions.users.first();
         var timesRun = 0;
         var numberspam = suffix[1];
@@ -144,9 +133,7 @@ msg.channel.sendMessage("Error, user not found.")
                clearInterval(interval)
            }
        }, 1)
-
-       usertospam.sendMessage(interval.length)
-        }
+       usertospam.sendMessage(interval.length);
         } catch (err) {
 msg.channel.sendMessage("Error, user not found.")
         }
