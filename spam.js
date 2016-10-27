@@ -15,6 +15,7 @@ if (msg.content.startsWith(prefix + "help")) {
         '\n&dspam' + 
         '\n&pmspam' + 
         '\n&dpmspam' + 
+        '\n&cspam' +
         '```'
     ])
     } else {
@@ -43,6 +44,13 @@ if (msg.content.startsWith(prefix + "help")) {
         msg.channel.sendMessage([
             '```js\nSpams someone, then deletes messages.' + 
             '\n&dpmspam | @USERNAME | NUMBER | TOSPAM```'
+        ])
+    } else
+        //CHANNEL SPAM
+    if (help === "cspam") {
+        msg.channel.sendMessage([
+            '```js\nSpams in a specific channel.' + 
+            '\n&cspam | #CHANNEL | NUMBER | TOSPAM```'
         ])
     }
     }
@@ -138,7 +146,28 @@ msg.channel.sendMessage("Error, user not found.")
 msg.channel.sendMessage("Error, user not found.")
         }
     }
-    
+    //CHANNEL SPAM
+    if (msg.content.startsWith(prefix + "cspam")) {
+        try {
+        var channel = msg.mentions.channels.first();
+        var timesRun = 0;
+        var numberspam = suffix[1];
+        console.log(numberspam)
+        var tospam = msg.content.split(' ').slice(2).join(' ');
+        console.log(tospam)
+        let messagecount = parseInt(numberspam) ? parseInt(numberspam) : 1;
+       var interval = setInterval(function() {
+          bot.channels.get(channel.id).sendMessage(tospam);
+           timesRun += 1
+           if (timesRun === messagecount) {
+               clearInterval(interval)
+           }
+       }, 1)
+      bot.channels.get(channel.id).sendMessage(interval.length);
+        } catch(err) {
+            console.log(err)
+        }
+    }
 });
 
 bot.login("TOKEN");
