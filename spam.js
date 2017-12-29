@@ -1,6 +1,5 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-var agent = require('superagent');
 var config = require('./config.json');
 var prefix = config.bot.prefix;
 bot.on('message', msg => {
