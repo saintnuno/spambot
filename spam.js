@@ -8,7 +8,7 @@ var suffix = msg.content.split(' ').slice(1);
 if (msg.content.startsWith(prefix + "help")) {
     var help = suffix[0];
     if (!help) {
-    msg.channel.sendMessage([
+    msg.channel.send([
         '```js' + 
         '\nCOMMANDS:' + 
         '\n&spam' +
@@ -20,35 +20,35 @@ if (msg.content.startsWith(prefix + "help")) {
     ])
     } else {
      if (help === "spam") {
-         msg.channel.sendMessage([
+         msg.channel.send([
              '```js\nSpams something you said.' + 
              '\n&spam | NUMBER | TO SPAM```'
          ])
      } else
         //PMSPAM
      if (help === "pmspam") {
-         msg.channel.sendMessage([
+         msg.channel.send([
              '```js\nPM Spams someone.' + 
              '\n&pmspam | @USERNAME | NUMBER | TO SPAM```'
          ])
      } else
          //DSPAM
       if (help === "dspam") {
-          msg.channel.sendMessage([
+          msg.channel.send([
              '```js\nSpams something you said, but then deletes.' + 
              '\n&dspam | NUMBER | TO SPAM```' 
           ]) 
       } else 
         //DPMSPAM
     if (help === "dpmspam") {
-        msg.channel.sendMessage([
+        msg.channel.send([
             '```js\nSpams someone, then deletes messages.' + 
             '\n&dpmspam | @USERNAME | NUMBER | TOSPAM```'
         ])
     } else
         //CHANNEL SPAM
     if (help === "cspam") {
-        msg.channel.sendMessage([
+        msg.channel.send([
             '```js\nSpams in a specific channel.' + 
             '\n&cspam | #CHANNEL | NUMBER | TOSPAM```'
         ])
@@ -65,13 +65,13 @@ if (msg.content.startsWith(prefix + "help")) {
         console.log(tospam)
         let messagecount = parseInt(numberspam) ? parseInt(numberspam) : 1;
        var interval = setInterval(function() {
-           msg.channel.sendMessage(tospam)
+           msg.channel.send(tospam)
            timesRun += 1
            if (timesRun === messagecount) {
                clearInterval(interval)
            }
        }, 1)
-       msg.channel.sendMessage(interval.length);
+       msg.channel.send(interval.length);
         } catch (err) {
         console.log(err)
         }
@@ -86,7 +86,7 @@ if (msg.content.startsWith(prefix + "help")) {
         console.log(tospam)
         let messagecount = parseInt(numberspam) ? parseInt(numberspam) : 1;
        var interval = setInterval(function() {
-           msg.channel.sendMessage(tospam).then(m => {
+           msg.channel.send(tospam).then(m => {
                m.delete()
            });
            timesRun += 1
@@ -94,7 +94,7 @@ if (msg.content.startsWith(prefix + "help")) {
                clearInterval(interval)
            }
        }, 1)
-       msg.channel.sendMessage(interval.length);
+       msg.channel.send(interval.length);
         } catch (err) {
         console.log(err)
         }
@@ -110,16 +110,16 @@ if (msg.content.startsWith(prefix + "help")) {
         console.log(tospam)
         let messagecount = parseInt(numberspam) ? parseInt(numberspam) : 1;
        var interval = setInterval(function() {
-           usertospam.sendMessage(tospam)
+           usertospam.send(tospam)
            timesRun += 1
            if (timesRun === messagecount) {
                clearInterval(interval)
            }
        }, 1)
 
-       usertospam.sendMessage(interval.length);
+       usertospam.send(interval.length);
         } catch (err) {
-msg.channel.sendMessage("Error, user not found.")
+msg.channel.send("Error, user not found.")
         }
     } else
    //PMDELETE
@@ -133,7 +133,7 @@ msg.channel.sendMessage("Error, user not found.")
         console.log(tospam)
         let messagecount = parseInt(numberspam) ? parseInt(numberspam) : 1;
        var interval = setInterval(function() {
-           usertospam.sendMessage(tospam).then(m => {
+           usertospam.send(tospam).then(m => {
                m.delete()
            });
            timesRun += 1
@@ -141,9 +141,9 @@ msg.channel.sendMessage("Error, user not found.")
                clearInterval(interval)
            }
        }, 1)
-       usertospam.sendMessage(interval.length);
+       usertospam.send(interval.length);
         } catch (err) {
-msg.channel.sendMessage("Error, user not found.")
+msg.channel.send("Error, user not found.")
         }
     } else
     //CHANNEL SPAM
@@ -157,13 +157,13 @@ msg.channel.sendMessage("Error, user not found.")
         console.log(tospam)
         let messagecount = parseInt(numberspam) ? parseInt(numberspam) : 1;
        var interval = setInterval(function() {
-          bot.channels.get(channel.id).sendMessage(tospam);
+          bot.channels.get(channel.id).send(tospam);
            timesRun += 1
            if (timesRun === messagecount) {
                clearInterval(interval)
            }
        }, 1)
-      bot.channels.get(channel.id).sendMessage(interval.length);
+      bot.channels.get(channel.id).send(interval.length);
         } catch(err) {
             console.log(err)
         }
