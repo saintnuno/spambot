@@ -1,7 +1,8 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
 var agent = require('superagent');
-var prefix = "&";
+var config = require('./config.json');
+var prefix = config.bot.prefix;
 bot.on('message', msg => {
 var suffix = msg.content.split(' ').slice(1);
 //CMDS
@@ -170,7 +171,7 @@ msg.channel.send("Error, user not found.")
     }
 });
 
-bot.login("TOKEN");
+bot.login(config.bot.token);
 //UNHANDLED REJECTION
 process.on("unhandledRejection", err => {
   console.error("Uncaught Promise Error: \n" + err.stack);
