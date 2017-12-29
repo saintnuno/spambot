@@ -1,0 +1,6 @@
+{
+    "bot": {
+  "token": "token_goes_here",
+  "prefix": "&"
+    }
+}
