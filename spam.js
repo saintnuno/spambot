@@ -12,46 +12,46 @@ if (msg.content.startsWith(prefix + "help")) {
     msg.channel.send([
         '```js' + 
         '\nCOMMANDS:' + 
-        '\n&spam' +
-        '\n&dspam' + 
-        '\n&pmspam' + 
-        '\n&dpmspam' + 
-        '\n&cspam' +
+        `\n${prefix}spam` +
+        `\n${prefix}dspam` + 
+        `\n${prefix}pmspam` + 
+        `\n${prefix}dpmspam` + 
+        `\n${prefix}cspam` +
         '```'
     ])
     } else {
      if (help === "spam") {
          msg.channel.send([
              '```js\nSpams something you said.' + 
-             '\n&spam | NUMBER | TO SPAM```'
+             `\n${prefix}spam | NUMBER | TO SPAM\`\`\``
          ])
      } else
         //PMSPAM
      if (help === "pmspam") {
          msg.channel.send([
              '```js\nPM Spams someone.' + 
-             '\n&pmspam | @USERNAME | NUMBER | TO SPAM```'
+             `\n${prefix}pmspam | @USERNAME | NUMBER | TO SPAM\`\`\``
          ])
      } else
          //DSPAM
       if (help === "dspam") {
           msg.channel.send([
              '```js\nSpams something you said, but then deletes.' + 
-             '\n&dspam | NUMBER | TO SPAM```' 
+             `\n${prefix}dspam | NUMBER | TO SPAM\`\`\``
           ]) 
       } else 
         //DPMSPAM
     if (help === "dpmspam") {
         msg.channel.send([
             '```js\nSpams someone, then deletes messages.' + 
-            '\n&dpmspam | @USERNAME | NUMBER | TOSPAM```'
+            `\n${prefix}dpmspam | @USERNAME | NUMBER | TOSPAM\`\`\``
         ])
     } else
         //CHANNEL SPAM
     if (help === "cspam") {
         msg.channel.send([
             '```js\nSpams in a specific channel.' + 
-            '\n&cspam | #CHANNEL | NUMBER | TOSPAM```'
+            `\n${prefix}cspam | #CHANNEL | NUMBER | TOSPAM/`/`/``
         ])
     }
     }
