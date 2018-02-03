@@ -50,7 +50,7 @@ if (msg.content.startsWith(prefix + "help")) {
     if (help === "cspam") {
         msg.channel.send([
             '```js\nSpams in a specific channel.' + 
-            `\n${prefix}cspam | #CHANNEL | NUMBER | TOSPAM/`/`/``
+            `\n${prefix}cspam | #CHANNEL | NUMBER | TOSPAM\`\`\``
         ])
     }
     }
@@ -116,7 +116,6 @@ if (msg.content.startsWith(prefix + "help")) {
                clearInterval(interval)
            }
        }, 1)
-
        usertospam.send(interval.length);
         } catch (err) {
 msg.channel.send("Error, user not found.")
@@ -169,8 +168,8 @@ msg.channel.send("Error, user not found.")
         }
     }
 });
-
 bot.login(config.bot.token);
+
 //UNHANDLED REJECTION
 process.on("unhandledRejection", err => {
   console.error("Uncaught Promise Error: \n" + err.stack);
